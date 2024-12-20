@@ -26,7 +26,7 @@ start = time.time()
 transcripts = []
 for i in df['id']:
     files = {
-        'file': open(f'911_recordings/call_{i}.mp3', 'rb')
+        'file': open(f'911_recordings/call_{i}.mp3', 'rb') # folder with 911 call recordings
     }
     response = requests.post(url, headers=headers, files=files, data=data)
     result = response.json()
