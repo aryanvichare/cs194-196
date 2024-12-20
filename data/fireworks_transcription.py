@@ -39,6 +39,8 @@ print("Time Taken: ", time.time() - start)
 transcripts = pd.Series(transcripts)
 df['transcript'] = transcripts
 df.dropna(subset=['transcript'], inplace=True)
+df['false_alarm'].replace({1.0: 'Yes', 0.0: 'No'}, inplace=True)
+df['potential_death'].replace({1.0: 'Yes', 0.0: 'No'}, inplace=True)
 
 # save df
 df.to_csv('911_transcripts.csv', index=False)
